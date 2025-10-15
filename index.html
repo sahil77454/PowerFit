@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerFit Gym</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Power<span>Fit</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#registration">Join Now</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Body, Transform Your Life</h1>
+                <p>Join our community and achieve your fitness goals with our expert trainers and state-of-the-art facilities.</p>
+                <a href="#registration" class="btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Personal Training</h3>
+                    <p>Customized workout plans tailored to your specific goals and fitness level.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Group Classes</h3>
+                    <p>Fun and energetic group workouts including HIIT, yoga, cycling and more.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Nutrition Plans</h3>
+                    <p>Personalized meal plans to complement your workout routine and goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Why Choose PowerFit?</h3>
+                    <p>At PowerFit, we believe fitness should be accessible to everyone, regardless of experience level. Our certified trainers are passionate about helping you reach your goals in a supportive environment.</p>
+                    <p>With over 10 years of experience in the fitness industry, we've helped thousands of clients transform their lives through exercise and proper nutrition.</p>
+                    <a href="#services" class="btn">Our Services</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gym interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Feedback from Our Members</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"I was already fit, but PowerFit helped me take my fitness to the next level. Their advanced training programs and nutrition guidance helped me achieve my bodybuilding goals!"</p>
+                    <div class="client">
+                        <div class="client-info">
+                            <h4>Aditya Gurav</h4>
+                            <p>Bodybuilding Champion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As a skinny guy, I struggled to gain muscle for years. PowerFit's mass gain program and personalized coaching helped me gain 12kg of solid muscle in just 6 months!"</p>
+                    <div class="client">
+                        <div class="client-info">
+                            <h4>Saket Palande</h4>
+                            <p>Gained 12kg Muscle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I was overweight and had low confidence. PowerFit's weight loss program transformed not just my body but my entire life. I've lost 22kg and gained so much energy!"</p>
+                    <div class="client">
+                        <div class="client-info">
+                            <h4>Aadarsh Sharma</h4>
+                            <p>Lost 22kg Weight</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration" id="registration">
+        <div class="container">
+            <h2>Join Now</h2>
+            <div class="registration-container">
+                <h3 class="form-title">Create Your Account</h3>
+                
+                <div id="successMessage" class="success-message">
+                    Registration successful! Welcome to PowerFit Gym.
+                </div>
+                
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="Enter your first name">
+                        <div id="firstNameError" class="error">First name must be at least 2 characters</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Enter your last name">
+                        <div id="lastNameError" class="error">Last name is required</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        <div id="emailError" class="error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Create a password">
+                        <div id="passwordError" class="error">Password must be at least 6 characters</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                        <div id="phoneError" class="error">Please enter a valid 10-digit phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="membership">Membership Type</label>
+                        <select id="membership" class="form-control">
+                            <option value="basic">Basic - ₹2,999/month</option>
+                            <option value="premium">Premium - ₹4,999/month</option>
+                            <option value="vip">VIP - ₹6,999/month</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%">Create Account</button>
+                    
+                    <div class="form-footer">
+                        <p>By registering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">Power<span>Fit</span></div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 PowerFit Gym. Created by Sahil Narkar</p>
+        </div>
+    </footer>
+
+      <script>
+    // Handle form submission
+    document.getElementById("registrationForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        phoneNumber: document.getElementById("phone").value,
+        membershipType: document.getElementById("membership").value,
+      };
+
+      try {
+        const response = await fetch("http://localhost:5000/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          document.getElementById("successMessage").style.display = "block";
+          document.getElementById("registrationForm").reset();
+          loadMembers(); // refresh members list
+        } else {
+          alert("Error: " + data.error);
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("Could not connect to the server. Is it running?");
+      }
+    });
+
+    // Load members from backend
+    async function loadMembers() {
+      try {
+        const response = await fetch("http://localhost:5000/data");
+        const members = await response.json();
+        const list = document.getElementById("membersList");
+        list.innerHTML = "";
+        members.forEach(m => {
+          const li = document.createElement("li");
+          li.textContent = `${m.first_name} ${m.last_name} - ${m.membership_type}`;
+          list.appendChild(li);
+        });
+      } catch (err) {
+        console.error("Failed to fetch members:", err);
+      }
+    }
+
+    // Load members on page load
+    loadMembers();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
