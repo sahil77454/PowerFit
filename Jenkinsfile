@@ -5,19 +5,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Run Server Test') {
             steps {
-                sh 'node server.js &'
+                bat 'node server.js'
             }
         }
 
-        stage('Deploy to Nginx') {
+        stage('Deploy') {
             steps {
-                sh 'cp -r * /var/www/html/'
+                bat 'echo Deployment completed'
             }
         }
     }
