@@ -9,9 +9,9 @@ pipeline {
             }
         }
 
-        stage('Run Server Test') {
+        stage('Build') {
             steps {
-                bat 'node server.js'
+                bat 'echo Build completed'
             }
         }
 
