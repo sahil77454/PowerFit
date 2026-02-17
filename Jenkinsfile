@@ -9,6 +9,12 @@ pipeline {
             }
         }
 
+        stage('Selenium Test') {
+            steps {
+                bat 'node seleniumTest.js'
+            }
+        }
+
         stage('Build') {
             steps {
                 bat 'echo Build completed'
