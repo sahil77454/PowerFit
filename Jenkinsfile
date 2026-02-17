@@ -10,11 +10,11 @@ pipeline {
         }
 
         stage('Start Server') {
-            steps {
-                bat 'start /B node server.js'
-                bat 'timeout /t 10'     // wait 10 seconds
-            }
-        }
+    steps {
+        bat 'start /B node server.js'
+        bat 'ping 127.0.0.1 -n 10 > nul'
+    }
+}
 
         stage('Selenium Test') {
             steps {
