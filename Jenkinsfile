@@ -9,6 +9,12 @@ pipeline {
             }
         }
 
+        stage('Start Server') {
+            steps {
+                bat 'start /B node server.js'
+            }
+        }
+
         stage('Selenium Test') {
             steps {
                 bat 'node seleniumTest.js'
