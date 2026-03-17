@@ -3,35 +3,30 @@ pipeline {
 
     stages {
 
-        stage('Install Dependencies') {
+        stage('Pull Code') {
             steps {
-                bat 'npm install'
+                git 'https://github.com/sahil77454/PowerFit.git'
             }
         }
 
-        stage('Start Server') {
-    steps {
-        bat 'start /B node server.js'
-        bat 'ping 127.0.0.1 -n 10 > nul'
-    }
-}
-
-        stage('Selenium Test') {
+        stage('Build Docker Image') {
             steps {
-                bat 'node seleniumTest.js'
+                bat 'docker build -t powerfit .'
             }
         }
 
-        stage('Build') {
+        stage('Stop Old Container') {
             steps {
-                bat 'echo Build completed'
+                bat 'docker stop powerfit-container || exit 0'
+                bat 'docker rm powerfit-container || exit 0'
             }
         }
 
-        stage('Deploy') {
+        stage('Run Container') {
             steps {
-                bat 'echo Application deployed successfully'
+                bat 'docker run -d -p 5000:5000 --name powerfit-container powerfit'
             }
         }
+
     }
 }
