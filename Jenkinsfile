@@ -5,7 +5,7 @@ pipeline {
 
         stage('Pull Code') {
             steps {
-                git 'https://github.com/sahil77454/PowerFit.git'
+                git branch: 'main', url: 'https://github.com/sahil77454/PowerFit.git'
             }
         }
 
@@ -27,6 +27,5 @@ pipeline {
                 bat 'docker run -d -p 5000:5000 --name powerfit-container powerfit'
             }
         }
-
     }
 }
