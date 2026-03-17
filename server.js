@@ -1,21 +1,33 @@
 console.log("Starting server...");
+
 const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
+// Serve frontend (IMPORTANT)
+app.use(express.static(path.join(__dirname, '.')));
+
+// PostgreSQL Connection (Docker Compatible)
 const pool = new Pool({
-  user: 'postgres',          // or your pgAdmin username
-  host: 'localhost',
-  database: 'Fitness',       // your DB name from pgAdmin
-  password: 'Root', // your pgAdmin password
+  user: 'postgres',
+  host: 'host.docker.internal',   // IMPORTANT for Docker
+  database: 'Fitness',
+  password: 'Root',
   port: 5432,
 });
 
-// Get all members (optional for testing)
+// Homepage route (Fix Cannot GET)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Get all members
 app.get('/data', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM members');
@@ -25,7 +37,7 @@ app.get('/data', async (req, res) => {
   }
 });
 
-// Register new member (from form)
+// Register new member
 app.post('/register', async (req, res) => {
   const { firstName, lastName, email, password, phoneNumber, membershipType } = req.body;
 
@@ -36,10 +48,17 @@ app.post('/register', async (req, res) => {
       [firstName, lastName, email, password, phoneNumber, membershipType]
     );
 
-    res.status(201).json({ message: 'Account created successfully', user: result.rows[0] });
+    res.status(201).json({
+      message: 'Account created successfully',
+      user: result.rows[0]
+    });
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+// Docker compatible listen
+app.listen(5000, "0.0.0.0", () => {
+  console.log("Server running on port 5000");
+});
