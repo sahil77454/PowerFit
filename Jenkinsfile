@@ -17,8 +17,8 @@ pipeline {
 
         stage('Stop All Containers') {
             steps {
-                bat 'docker stop $(docker ps -q) || echo no running containers'
-                bat 'docker rm $(docker ps -aq) || echo no containers'
+                bat 'for /f "tokens=*" %%i in (\'docker ps -q\') do docker stop %%i'
+                bat 'for /f "tokens=*" %%i in (\'docker ps -aq\') do docker rm %%i'
             }
         }
 
