@@ -15,9 +15,10 @@ pipeline {
             }
         }
 
-        stage('Stop Old Container') {
+        stage('Stop All Containers') {
             steps {
-                bat 'docker rm -f powerfit-container || echo no container'
+                bat 'docker stop $(docker ps -q) || echo no running containers'
+                bat 'docker rm $(docker ps -aq) || echo no containers'
             }
         }
 
