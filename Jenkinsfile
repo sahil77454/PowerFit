@@ -17,8 +17,7 @@ pipeline {
 
         stage('Stop Old Container') {
             steps {
-                bat 'docker stop powerfit-container || exit 0'
-                bat 'docker rm powerfit-container || exit 0'
+                bat 'docker rm -f powerfit-container || echo no container'
             }
         }
 
